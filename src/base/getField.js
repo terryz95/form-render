@@ -1,3 +1,6 @@
+/**
+ * 根据schema当前节点和map，匹配到组件名称
+ */
 function getWidgetName(schema, map) {
   const { type, format, enum: enums, readonly } = schema;
   const list = [];
@@ -22,12 +25,14 @@ export default function getField(
   schema = {},
   { customized, generated, mapping }
 ) {
+  // ui:field 和 ui:widget的区别?
   const { 'ui:widget': widget, 'ui:field': field } = schema;
   // Field能否被重定义
   let fieldCanRedefine = false;
   let Field;
   // ui:widget 是字符串，从generated中查，不是的话，就是本身
   const _widget = typeof widget === 'string' ? generated[widget] : widget;
+  // 优先ui:field?
   if (field && !Field) {
     Field = typeof field === 'string' ? customized[field] : field;
   }
