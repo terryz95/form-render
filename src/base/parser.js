@@ -19,9 +19,11 @@ function getSubSchemas(schema = {}) {
     return [];
   }
   let children = {};
+  // 如果当前节点是object类型，孩子就取properties
   if (type === 'object') {
     children = properties;
   }
+  // 如果当前节点是array类型，孩子就取items
   if (type === 'array') {
     children = [].concat(items);
   }
