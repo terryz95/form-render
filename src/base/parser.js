@@ -36,6 +36,10 @@ function getSubSchemas(schema = {}) {
   }));
 }
 
+/**
+ * schema + materials --> props
+ */
+
 function getBasicProps(settings, materials) {
   const {
     schema,

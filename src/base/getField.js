@@ -21,6 +21,10 @@ function getWidgetName(schema, map) {
   return map[found] || '';
 }
 
+/**
+ * schema + materials --> Field
+ */
+
 export default function getField(
   schema = {},
   { customized, generated, mapping }

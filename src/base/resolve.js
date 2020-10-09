@@ -46,6 +46,10 @@ function getDefaultValue(schema) {
   return defaultValue[type];
 }
 
+/**
+ * 根据传入的 表单配置schema 和 表单绑定数据 formData 递归解析出最终的 表单数据模型
+ */
+
 function resolve(schema, data, options = {}) {
   const {
     // 类型
@@ -54,8 +58,8 @@ function resolve(schema, data, options = {}) {
     properties,
     // 数组子集
     items,
-    // 必选值，对象的子集
     default: def,
+    // 必选值，对象的子集
     required = [],
     'ui:widget': widget,
   } = schema;
